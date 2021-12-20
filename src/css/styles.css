@@ -1,0 +1,241 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: rgb(13, 204, 13);
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.column {
+    background-color: rgb(214, 212, 212);
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.column__content {
+    position: relative;
+}
+
+.column__title {
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+
+.column__control {
+    display: block;
+    cursor: pointer;
+}
+
+.column__control-hidden {
+    display: none;
+}
+
+.control__link {
+    text-decoration: none;
+    border-radius: 3px;
+    color: #5e6c84;
+    flex: 1 0 auto;
+    margin: 2px 0 8px 8px;
+    padding: 4px 8px;
+    position: relative;
+    user-select: none;
+}
+
+.column__control:hover {
+    background-color: rgb(190, 190, 190);
+    color: #333;
+}
+
+.grabbed {
+    position: absolute !important;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.link-icon {
+    margin-right: 2px;
+    color: grey;
+    font-size: 16px;
+    height: 20px;
+    width: 20px;
+}
+
+.link-icon::before {
+    content: "+";
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    color: grey;
+    position: absolute;
+}
+
+.addButton {
+    margin-right: 5px;
+    width: 100px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.cardText {
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.cancelButton {
+    width: 15px;
+    height: 15px;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.cancelButton::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cancelButton::after {
+    transform: translate(-50%, -50%) rotate(-45deg);;
+}
+
+.cancelButton::after, .cancelButton::before {
+    width: 1.2em;
+    height: 0.15em;
+    content: '';
+    background-color: grey;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    align-items: center;
+}
+
+.shaded::after {
+    content: '';
+    position: absolute;
+    background-color: rgb(122, 122, 122);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.task {
+    position: relative;
+    padding: 15px;
+    border: solid 1px grey;
+    margin-bottom: 5px;
+    cursor: grab;
+    border-radius: 5px;
+    background-color: honeydew;
+    min-height: 50px;
+    overflow-wrap: break-word ;
+}
+
+.task:active {
+    cursor: grabbing;
+}
+
+.task-active {
+    background-color: lightgrey;
+}
+
+.task__cancelButton {
+    display: none;
+}
+
+.task__cancelButton-active {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    margin: 2px;
+}
+
+.task__cancelButton-active::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.task__cancelButton-active::after {
+    transform: translate(-50%, -50%) rotate(-45deg);;
+}
+
+.task__cancelButton-active::after, .task__cancelButton-active::before {
+    width: 1.2em;
+    height: 0.15em;
+    content: '';
+    background-color: grey;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.task__editButton {
+    display: none;
+}
+
+.task__editButton-active {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    opacity: 0.5;
+    width: 0.35em;
+    height: 0.8em;
+    background: #2C2C2C;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.task__editButton-active:before{
+    content: "";
+    position: absolute;
+    top: -0.35em;
+    left: 0;
+    width: 0.35em;
+    height: 0.3em;
+    background: #2C2C2C;
+    border-radius: 0.1em;
+}
+ 
+.task__editButton-active:after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 0.85em;
+    left: 0;
+    border: solid 0.2em #2C2C2C;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top: solid 0.45em #2C2C2C;
+}
